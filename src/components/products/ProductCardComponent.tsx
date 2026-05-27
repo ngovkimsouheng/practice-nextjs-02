@@ -14,7 +14,11 @@ export function ProductCardComponent({
     <Card
       className="max-w-[300px]"
       renderImage={() => (
-        <img className="w-full h-[250px] object-contain " src={thumbnail} alt={name} />
+        <img
+          className="w-full h-[250px] p-6 object-contain "
+          src={thumbnail}
+          alt={name}
+        />
       )}
     >
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

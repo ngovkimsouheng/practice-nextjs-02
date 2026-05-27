@@ -53,7 +53,6 @@
 //   );
 // }
 "use client";
-
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ProductCardComponent } from "@/components/products/ProductCardComponent";
@@ -65,16 +64,15 @@ export default function ProductPageRoute() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch("https://ishop.cheat.casa/api/v1/products");
-
-        if (!res.ok) {
-          throw new Error(`API error: ${res.status}`);
-        }
+        const res = await fetch(
+          "https://ishop.cheat.casa/api/v1/products"
+        );
 
         const data = await res.json();
+
         setProducts(data.content || []);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.log(error);
       } finally {
         setLoading(false);
       }
@@ -85,37 +83,54 @@ export default function ProductPageRoute() {
 
   return (
     <div className="bg-gray-100 p-4">
+
       <div className="flex gap-4 mb-4">
-        {" "}
         <Link
-          className="bg-blue-500 text-white p-2 rounded"
           href="/dashboard/create"
+          className="bg-blue-500 p-2 rounded text-white"
         >
-          Create Product
+          Create
         </Link>
+
         <Link
-          className="bg-green-500 text-white p-2 rounded"
           href="/dashboard/edit"
+          className="bg-green-500 p-2 rounded text-white"
         >
-          Edit Product
+          Edit
         </Link>
       </div>
 
-      <div className="grid grid-cols-4 gap-4  ">
+      <div className="grid grid-cols-4 gap-4">
+
         {loading ? (
           <p>Loading...</p>
         ) : (
-          products.map(({ uuid, thumbnail, priceOut, name, description }) => (
-            <ProductCardComponent
-              key={uuid}
-              thumbnail={thumbnail}
-              priceOut={priceOut}
-              name={name}
-              description={description}
-              uuid={""}
-            />
-          ))
+          products.map(
+            ({
+              uuid,
+              thumbnail,
+              priceOut,
+              name,
+              description,
+            }) => (
+
+              <Link
+                key={uuid}
+                href={`/dashboard/products/${uuid}`}
+              >
+                <ProductCardComponent
+                  thumbnail={thumbnail}
+                  priceOut={priceOut}
+                  name={name}
+                  description={description}
+                  uuid={uuid}
+                />
+              </Link>
+
+            )
+          )
         )}
+
       </div>
     </div>
   );
