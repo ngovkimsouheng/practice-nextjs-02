@@ -1,7 +1,8 @@
+
 import React from 'react'
 
-export default function ProductsPage() {
+export default function ProductsInDashboard() {
   return (
-    <div>ProductsPage</div>
+    <div className='p-6'>page product dashboard</div>
   )
 }

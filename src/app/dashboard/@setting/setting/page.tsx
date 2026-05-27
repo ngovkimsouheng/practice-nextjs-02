@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SettingPage() {
+export default function SettingPageRoute() {
   return (
     <div>SettingPage</div>
   )

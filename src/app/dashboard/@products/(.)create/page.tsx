@@ -1,7 +1,9 @@
 import React from 'react'
-
+import { CreateProductModalComponent } from '@/components/modal/CreateProductModalComponent';
 export default function CreateProductPageModal() {
   return (
-    <div>CreateProductPageModal</div>
+    <div>
+      <CreateProductModalComponent/>
+    </div>
   )
 }

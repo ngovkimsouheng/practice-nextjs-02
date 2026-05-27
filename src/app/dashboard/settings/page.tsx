@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SettingsPage() {
   return (
-    <div>SettingsPage</div>
+    <div> welcome to Setting Page</div>
   )
 }
     

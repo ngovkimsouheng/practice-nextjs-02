@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function ProductPage() {
-  return (
-    <div>ProductP</div>
-  )
+  return <div> ProdcutPage render here</div>;
 }
