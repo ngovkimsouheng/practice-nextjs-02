@@ -6,17 +6,15 @@ export async function generateMetadata({
   params: { uuid: string };
 }): Promise<Metadata> {
   const res = await fetch(
-    `https://ishop.cheat.casa/api/v1https://ishop.cheat.casa/api/v1/products/${params.uuid}`,
+    `https://ishop.cheat.casa/api/v1/products/${params.uuid}`,
   );
   const post = await res.json();
 
   return {
-    title: `Product ${post?.uuid} | Next Route`,
-    description: `View details for product ${post?.uuid}`,
+    title: `Product ${post?.name} | Next Route`,
+    description: `View details for product ${post?.description}`,
     openGraph: {
-      images: post?.thumbnail,
-      title: `Product ${post?.name} | Next Route`,
-      description: `View details for product ${post?.description}`,
+      images: post?.thumbnail
     },
   };
 }
