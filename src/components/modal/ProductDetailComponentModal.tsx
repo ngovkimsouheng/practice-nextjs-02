@@ -30,7 +30,11 @@ export default function ProductDetailModalComponent({
         <div className="grid gap-8 md:grid-cols-2">
           <div className="overflow-hidden rounded-2xl border bg-gray-50">
             <div className="relative h-[350px] w-full">
-              <img src={thumbnail} alt={name} className="w-full p-10 h-full object-contain" />
+              <img
+                src={thumbnail}
+                alt={name}
+                className="w-full p-10 h-full object-contain"
+              />
             </div>
           </div>
           <div className="flex flex-col justify-between">
@@ -44,7 +48,9 @@ export default function ProductDetailModalComponent({
               </div>
 
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">{name}</h1>
+                <h1 className="text-3xl line-clamp-1 font-bold text-gray-900">
+                  {name}
+                </h1>
 
                 <p className="mt-4 leading-7 text-gray-600">{description}</p>
               </div>
